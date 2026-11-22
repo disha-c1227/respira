@@ -1,0 +1,22 @@
+DISEASE MODEL HOLDOUT EVALUATION
+
+Holdout images: 5687
+Accuracy: 0.8062 (80.62%)
+
+              precision    recall  f1-score   support
+
+      Normal     0.6635    0.8124    0.7305      1818
+   Pneumonia     0.7905    0.9974    0.8820      1165
+          TB     0.9766    0.6461    0.7777      2128
+       COVID     0.9794    0.9913    0.9853       576
+
+    accuracy                         0.8062      5687
+   macro avg     0.8525    0.8618    0.8439      5687
+weighted avg     0.8387    0.8062    0.8050      5687
+
+Confusion matrix (rows=true, columns=predicted):
+           Normal  Pneumonia    TB  COVID
+Normal       1477        307    32      2
+Pneumonia       3       1162     0      0
+TB            743          0  1375     10
+COVID           3          1     1    571

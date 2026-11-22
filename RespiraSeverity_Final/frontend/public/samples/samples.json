@@ -1,0 +1,6 @@
+{
+  "Normal": "/samples/normal_sample.jpg",
+  "Pneumonia": "/samples/pneumonia_sample.jpg",
+  "TB": "/samples/tb_sample.jpg",
+  "COVID": "/samples/covid_sample.png"
+}

@@ -1,0 +1,50 @@
+{
+  "pneumonia": {
+    "sample_size": 1500,
+    "silhouette_score": 0.2123,
+    "davies_bouldin_index": 1.7853,
+    "calinski_harabasz_score": 382.84,
+    "cluster_distribution": {
+      "Cluster 0": 509,
+      "Cluster 1": 621,
+      "Cluster 2": 370
+    },
+    "mean_radiographic_opacities": {
+      "Cluster 0": 0.4861,
+      "Cluster 1": 0.4837,
+      "Cluster 2": 0.4811
+    },
+    "covid_ref_assignment": {
+      "Mild": 933,
+      "Moderate": 563,
+      "Severe": 4
+    }
+  },
+  "tb": {
+    "sample_size": 1500,
+    "silhouette_score": 0.2016,
+    "davies_bouldin_index": 1.9419,
+    "calinski_harabasz_score": 291.5,
+    "cluster_distribution": {
+      "Cluster 0": 574,
+      "Cluster 1": 595,
+      "Cluster 2": 331
+    },
+    "mean_radiographic_opacities": {
+      "Cluster 0": 0.4991,
+      "Cluster 1": 0.5095,
+      "Cluster 2": 0.5706
+    },
+    "covid_ref_assignment": {
+      "Mild": 1497,
+      "Moderate": 3,
+      "Severe": 0
+    }
+  },
+  "covid_reference": {
+    "total_cases": 760,
+    "mild_count": 234,
+    "moderate_count": 284,
+    "severe_count": 242
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "disease_classes": [
+    "Normal",
+    "Pneumonia",
+    "TB",
+    "COVID"
+  ],
+  "covid_severity_classes": [
+    "Mild",
+    "Moderate",
+    "Severe"
+  ],
+  "pneumonia_clusters": [
+    "Cluster 0 (Feature Group Alpha)",
+    "Cluster 1 (Feature Group Beta)",
+    "Cluster 2 (Feature Group Gamma)"
+  ],
+  "tb_clusters": [
+    "Cluster 0 (Feature Group Alpha)",
+    "Cluster 1 (Feature Group Beta)",
+    "Cluster 2 (Feature Group Gamma)"
+  ]
+}

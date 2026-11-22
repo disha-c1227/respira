@@ -1,0 +1,74 @@
+[
+  {
+    "threshold": 0.0,
+    "coverage_percent": 100.0,
+    "retained_count": 5687,
+    "selective_accuracy": 80.62,
+    "macro_f1": 84.39,
+    "rejection_percent": 0.0
+  },
+  {
+    "threshold": 0.5,
+    "coverage_percent": 99.77,
+    "retained_count": 5674,
+    "selective_accuracy": 80.67,
+    "macro_f1": 84.43,
+    "rejection_percent": 0.23
+  },
+  {
+    "threshold": 0.6,
+    "coverage_percent": 87.45,
+    "retained_count": 4973,
+    "selective_accuracy": 84.66,
+    "macro_f1": 88.28,
+    "rejection_percent": 12.55
+  },
+  {
+    "threshold": 0.7,
+    "coverage_percent": 83.07,
+    "retained_count": 4724,
+    "selective_accuracy": 86.11,
+    "macro_f1": 89.74,
+    "rejection_percent": 16.93
+  },
+  {
+    "threshold": 0.75,
+    "coverage_percent": 81.24,
+    "retained_count": 4620,
+    "selective_accuracy": 86.62,
+    "macro_f1": 90.17,
+    "rejection_percent": 18.76
+  },
+  {
+    "threshold": 0.8,
+    "coverage_percent": 79.34,
+    "retained_count": 4512,
+    "selective_accuracy": 87.19,
+    "macro_f1": 90.51,
+    "rejection_percent": 20.66
+  },
+  {
+    "threshold": 0.85,
+    "coverage_percent": 76.63,
+    "retained_count": 4358,
+    "selective_accuracy": 88.02,
+    "macro_f1": 91.06,
+    "rejection_percent": 23.37
+  },
+  {
+    "threshold": 0.9,
+    "coverage_percent": 72.45,
+    "retained_count": 4120,
+    "selective_accuracy": 89.56,
+    "macro_f1": 92.02,
+    "rejection_percent": 27.55
+  },
+  {
+    "threshold": 0.95,
+    "coverage_percent": 65.01,
+    "retained_count": 3697,
+    "selective_accuracy": 92.48,
+    "macro_f1": 93.83,
+    "rejection_percent": 34.99
+  }
+]
