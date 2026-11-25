@@ -1,0 +1,55 @@
+RESPIRASEVERITY — MULTI-MODEL COMPARISON REPORT
+Generated: 2026-11-25 21:22:50.742368
+Holdout  : 5687 images (20% stratified split, seed=42)
+
+PREPROCESSING NOTE
+  MobileNetV3-Small : Grayscale-repeat normalisation (preserved from original training)
+  EfficientNetB0    : ImageNet RGB normalisation
+  ResNet50          : ImageNet RGB normalisation
+  DenseNet121       : ImageNet RGB normalisation
+
+============================================================
+Model: MobileNetV3-Small
+  Accuracy        : 80.62%
+  Macro Precision : 85.25%
+  Macro Recall    : 86.18%
+  Macro F1        : 84.39%
+  Weighted F1     : 80.50%
+  ROC-AUC (macro) : 0.9561
+  Inference       : 43.41 ms/image
+
+  Per-class:
+    Normal        P= 66.35%  R= 81.24%  F1= 73.05%  n=1818
+    Pneumonia     P= 79.05%  R= 99.74%  F1= 88.20%  n=1165
+    TB            P= 97.66%  R= 64.61%  F1= 77.77%  n=2128
+    COVID         P= 97.94%  R= 99.13%  F1= 98.53%  n=576
+
+  Confusion matrix (rows=true, cols=predicted):
+                      Normal   Pneumonia          TB       COVID
+    Normal              1477         307          32           2
+    Pneumonia              3        1162           0           0
+    TB                   743           0        1375          10
+    COVID                  3           1           1         571
+
+============================================================
+Model: EfficientNetB0
+  Accuracy        : 80.09%
+  Macro Precision : 84.23%
+  Macro Recall    : 85.51%
+  Macro F1        : 84.04%
+  Weighted F1     : 79.99%
+  ROC-AUC (macro) : 0.9579
+  Inference       : 38.70 ms/image
+
+  Per-class:
+    Normal        P= 66.73%  R= 76.13%  F1= 71.12%  n=1818
+    Pneumonia     P= 78.93%  R= 99.66%  F1= 88.09%  n=1165
+    TB            P= 91.79%  R= 67.81%  F1= 78.00%  n=2128
+    COVID         P= 99.47%  R= 98.44%  F1= 98.95%  n=576
+
+  Confusion matrix (rows=true, cols=predicted):
+                      Normal   Pneumonia          TB       COVID
+    Normal              1384         308         126           0
+    Pneumonia              2        1161           1           1
+    TB                   683           0        1443           2
+    COVID                  5           2           2         567

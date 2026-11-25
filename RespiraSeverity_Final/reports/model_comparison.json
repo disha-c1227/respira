@@ -1,0 +1,162 @@
+{
+  "evaluation_date": "2026-11-25T21:22:50.738213",
+  "holdout_samples": 5687,
+  "split": "test_size=0.20, random_state=42, stratified by disease",
+  "classes": [
+    "Normal",
+    "Pneumonia",
+    "TB",
+    "COVID"
+  ],
+  "preprocessing_note": "MobileNetV3-Small uses Grayscale-repeat normalisation (consistent with its training). EfficientNetB0, ResNet50 and DenseNet121 use standard ImageNet RGB normalisation. Comparison against MobileNetV3 should note this preprocessing difference.",
+  "models": [
+    {
+      "model": "MobileNetV3-Small",
+      "checkpoint": "C:\\Users\\Disha C\\OneDrive\\Desktop\\RespiraSeverity_Final\\RespiraSeverity_Final\\models\\disease_model.pt",
+      "preprocessing": "Grayscale-repeat + [0.485,0.485,0.485]/[0.229,0.229,0.229]",
+      "params_million": 2.5,
+      "holdout_samples": 5687,
+      "accuracy": 80.6225,
+      "macro_precision": 85.2494,
+      "macro_recall": 86.1831,
+      "macro_f1": 84.3871,
+      "weighted_f1": 80.4996,
+      "roc_auc_macro": 0.9561,
+      "inference_ms_per_image": 43.408,
+      "per_class": {
+        "Normal": {
+          "precision": 66.35,
+          "recall": 81.24,
+          "f1": 73.05,
+          "support": 1818
+        },
+        "Pneumonia": {
+          "precision": 79.05,
+          "recall": 99.74,
+          "f1": 88.2,
+          "support": 1165
+        },
+        "TB": {
+          "precision": 97.66,
+          "recall": 64.61,
+          "f1": 77.77,
+          "support": 2128
+        },
+        "COVID": {
+          "precision": 97.94,
+          "recall": 99.13,
+          "f1": 98.53,
+          "support": 576
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Normal",
+          "Pneumonia",
+          "TB",
+          "COVID"
+        ],
+        "matrix": [
+          [
+            1477,
+            307,
+            32,
+            2
+          ],
+          [
+            3,
+            1162,
+            0,
+            0
+          ],
+          [
+            743,
+            0,
+            1375,
+            10
+          ],
+          [
+            3,
+            1,
+            1,
+            571
+          ]
+        ]
+      }
+    },
+    {
+      "model": "EfficientNetB0",
+      "checkpoint": "C:\\Users\\Disha C\\OneDrive\\Desktop\\RespiraSeverity_Final\\RespiraSeverity_Final\\models\\efficientnetb0_disease.pt",
+      "preprocessing": "ImageNet RGB [0.485,0.456,0.406]/[0.229,0.224,0.225]",
+      "params_million": 5.3,
+      "holdout_samples": 5687,
+      "accuracy": 80.095,
+      "macro_precision": 84.2311,
+      "macro_recall": 85.508,
+      "macro_f1": 84.0403,
+      "weighted_f1": 79.9894,
+      "roc_auc_macro": 0.9579,
+      "inference_ms_per_image": 38.695,
+      "per_class": {
+        "Normal": {
+          "precision": 66.73,
+          "recall": 76.13,
+          "f1": 71.12,
+          "support": 1818
+        },
+        "Pneumonia": {
+          "precision": 78.93,
+          "recall": 99.66,
+          "f1": 88.09,
+          "support": 1165
+        },
+        "TB": {
+          "precision": 91.79,
+          "recall": 67.81,
+          "f1": 78.0,
+          "support": 2128
+        },
+        "COVID": {
+          "precision": 99.47,
+          "recall": 98.44,
+          "f1": 98.95,
+          "support": 576
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Normal",
+          "Pneumonia",
+          "TB",
+          "COVID"
+        ],
+        "matrix": [
+          [
+            1384,
+            308,
+            126,
+            0
+          ],
+          [
+            2,
+            1161,
+            1,
+            1
+          ],
+          [
+            683,
+            0,
+            1443,
+            2
+          ],
+          [
+            5,
+            2,
+            2,
+            567
+          ]
+        ]
+      }
+    }
+  ]
+}

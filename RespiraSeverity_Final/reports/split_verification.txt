@@ -1,0 +1,99 @@
+======================================================================
+SPLIT VERIFICATION — RespiraSeverity Multi-CNN Comparison
+======================================================================
+
+Total labelled images in manifest : 28434
+Random seed                        : 42
+Test/holdout fraction              : 0.2 (20%)
+Stratified by                      : disease class
+
+Training set size  : 22747
+Holdout set size   : 5687
+
+Per-class distribution:
+  Class           Train  Holdout    Total    Train%     Hold%
+  ------------------------------------------------------------
+  Normal           7270     1818     9088    31.96%    31.97%
+  Pneumonia        4659     1165     5824    20.48%    20.49%
+  TB               8513     2128    10641    37.42%    37.42%
+  COVID            2305      576     2881    10.13%    10.13%
+
+Verification checksums (first 5 holdout paths per class):
+  Normal:
+    normal-867.jpg
+    normal-3090.jpg
+    normal-389.jpg
+    normal-8467.jpg
+    normal-1046.jpg
+  Pneumonia:
+    pneumonia-2968.jpg
+    pneumonia-4743.jpg
+    pneumonia-1340.jpg
+    pneumonia-2859.jpg
+    pneumonia-2364.jpg
+  TB:
+    tuberculosis-3750.jpg
+    tuberculosis-2923.jpg
+    tuberculosis-2294.jpg
+    tuberculosis-364.jpg
+    tuberculosis-632.jpg
+  COVID:
+    419639-002798_11-25-2008-XR CHEST 1 VIEW AP-64618_1.000000-CHEST AP-22223_000000.dcm.jpg
+    SITE2-000198_01-01-2008-50564_1.000000-29553_000000.dcm.jpg
+    419639-003027_07-31-2003-XR CHEST 1 VIEW AP-36839_1.000000-AP-37009_000000.dcm.jpg
+    sub-S11265_ses-E20080_run-1_bp-chest_vp-ap_dx.png
+    SITE2-000062_01-09-2002-06327_1.000000-42030_000000.dcm.jpg
+
+======================================================================
+CONSISTENCY WITH EXISTING MOBILENETV3 EVALUATION
+======================================================================
+
+The existing reports/disease_classification_report.txt used:
+  train_test_split(df, test_size=0.20, random_state=42, stratify=df.disease)
+
+This script uses IDENTICAL parameters.
+The holdout indices and file paths will be byte-for-byte identical,
+provided the manifest.csv row order has not changed.
+
+Holdout size in existing report : 5687
+Holdout size reproduced here    : 5687
+RESULT: MATCH — splits are identical. ✓
+
+All new models (EfficientNetB0, ResNet50, DenseNet121) will be
+evaluated on the SAME 5,687 holdout images as MobileNetV3.
+The comparison is therefore fair and directly comparable.
+
+======================================================================
+PREPROCESSING NOTES PER ARCHITECTURE
+======================================================================
+
+MobileNetV3-Small (EXISTING BASELINE — DO NOT RETRAIN):
+  Input  : Grayscale(3) → Resize(224,224)
+  Norm   : mean=[0.485,0.485,0.485]  std=[0.229,0.229,0.229]
+  Note   : Grayscale repeated to 3 channels. Non-standard but consistent
+           between training and inference. MUST NOT be changed.
+
+EfficientNetB0 (NEW — Option B, architecture-native):
+  Input  : Resize(256,256) → CenterCrop(224,224)
+  Norm   : mean=[0.485,0.456,0.406]  std=[0.229,0.224,0.225]  (ImageNet RGB)
+  Note   : Full RGB. X-rays will be loaded as RGB (3-channel grayscale).
+           Augmentation: RandomHorizontalFlip, RandomRotation(10),
+                         ColorJitter(brightness=0.1, contrast=0.1)
+
+ResNet50 (NEW — Option B, architecture-native):
+  Input  : Resize(256,256) → CenterCrop(224,224)
+  Norm   : mean=[0.485,0.456,0.406]  std=[0.229,0.224,0.225]  (ImageNet RGB)
+  Same augmentation strategy as EfficientNetB0.
+
+DenseNet121 (NEW — Option B, architecture-native):
+  Input  : Resize(256,256) → CenterCrop(224,224)
+  Norm   : mean=[0.485,0.456,0.406]  std=[0.229,0.224,0.225]  (ImageNet RGB)
+  Same augmentation strategy as EfficientNetB0.
+
+LIMITATION TO DOCUMENT IN COMPARISON:
+  MobileNetV3 uses grayscale-repeated normalisation; the three new models
+  use standard ImageNet RGB normalisation. This means preprocessing differs
+  between MobileNetV3 and the new trio. Architecture-to-architecture
+  comparisons within the new trio (EfficientNetB0, ResNet50, DenseNet121)
+  are on equal footing. Comparison against MobileNetV3 should note this
+  preprocessing difference.
